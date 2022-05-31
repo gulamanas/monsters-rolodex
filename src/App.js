@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import './App.css';
+import CardList from './components/card-list/CardList';
 
 class App extends Component {
   constructor() {
@@ -22,12 +23,22 @@ class App extends Component {
       })
   }
 
-  render() {
-    console.log('render')
+  onSearchChange = (e) => {
+    const searchField = e.target.value.toLowerCase()
+    this.setState(() => {
+      // return { monsters: filteredMonsters }
+      return { searchField }
+    })
+  }
 
-    const filteredMonsters = this.state.monsters.filter(monster => {
+  render() {
+
+    const { monsters, searchField } = this.state;
+    const { onSearchChange } = this;
+
+    const filteredMonsters = monsters.filter(monster => {
       // includes method returns true and is a case sensitive
-      return monster.name.toLowerCase().includes(this.state.searchField)
+      return monster.name.toLowerCase().includes(searchField)
     })
 
     return (
@@ -36,19 +47,9 @@ class App extends Component {
           type="search"
           className='search-bar'
           placeholder='Search Monsters'
-          onChange={(e) => {
-            // console.log(e.target.value)
-            const searchField = e.target.value.toLowerCase()
-            this.setState(() => {
-              // return { monsters: filteredMonsters }
-              return { searchField }
-            })
-          }} />
-        {
-          filteredMonsters.map((monster) => {
-            return <h1 key={monster.id}>{monster.name}</h1>
-          })
-        }
+          onChange={onSearchChange}
+        />
+        <CardList monsters={filteredMonsters} />
       </div>
     );
 

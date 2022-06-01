@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import './App.css';
 import CardList from './components/card-list/CardList';
+import SearchBar from './components/search-bar/SearchBar';
 
 class App extends Component {
   constructor() {
@@ -32,7 +33,6 @@ class App extends Component {
   }
 
   render() {
-
     const { monsters, searchField } = this.state;
     const { onSearchChange } = this;
 
@@ -42,12 +42,11 @@ class App extends Component {
     })
 
     return (
-      <div className="App">
-        <input
-          type="search"
-          className='search-bar'
+      <div className="bg-gradient-to-r from-cyan-500 to-blue-500">
+        <SearchBar
+          className='mt-2'
           placeholder='Search Monsters'
-          onChange={onSearchChange}
+          onChangeHandler={onSearchChange}
         />
         <CardList monsters={filteredMonsters} />
       </div>

@@ -42,14 +42,15 @@ class App extends Component {
     })
 
     return (
-      <div className="bg-gradient-to-r from-cyan-500 to-blue-500">
+      <div className="bg-gradient-to-r from-cyan-500 to-blue-500 min-h-screen text-center">
+        <h1 className='text-blue-900 font-bold text-5xl text-center'>Monsters Rolodex</h1>
         <SearchBar
-          className='mt-2'
+          className='mt-2 flex'
           placeholder='Search Monsters'
           onChangeHandler={onSearchChange}
         />
-        <CardList monsters={filteredMonsters} />
-      </div>
+        <CardList monsters={filteredMonsters} className='w-48 ' />
+      </div >
     );
 
   }

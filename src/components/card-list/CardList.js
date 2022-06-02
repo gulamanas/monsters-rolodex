@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Card from '../card/Card'
 
 class CardList extends Component {
     render() {
@@ -6,13 +7,11 @@ class CardList extends Component {
         // console.log(this.props)
         return (
             <div>
-                {monsters.map(monster => (
-                    <div key={monster.id}>
-                        <img src={`https://robohash.org/${monster.id}/?set=set2&size=180x180`} alt={`monster ${monster.name}`} />
-                        <h1>{monster.name}</h1>
-                        <p>{monster.email}</p>
-                    </div>
-                ))}
+                {monsters.map(monster => {
+                    return (
+                        <Card key={monster.id} monster={monster} />
+                    )
+                })}
             </div>
         )
     }

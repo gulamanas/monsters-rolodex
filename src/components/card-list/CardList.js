@@ -6,7 +6,7 @@ class CardList extends Component {
         const { monsters } = this.props;
         // console.log(this.props)
         return (
-            <div>
+            <div className='inline-grid grid-cols-4'>
                 {monsters.map(monster => {
                     return (
                         <Card key={monster.id} monster={monster} />

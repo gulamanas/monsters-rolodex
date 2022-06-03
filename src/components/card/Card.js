@@ -4,9 +4,9 @@ class Card extends Component {
     render() {
         const { id, name, email } = this.props.monster
         return (
-            <div key={id} className='grid'>
-                <img src={`https://robohash.org/${id}/?set=set2&size=180x180`} alt={`monster ${name}`} />
-                <h1>{name}</h1>
+            <div key={id} className='m-4 bg-cyan-300 rounded-lg p-3 hover:scale-110 transition-all cursor-pointer'>
+                <img src={`https://robohash.org/${id}/?set=set2&size=180x180`} alt={`monster ${name}`} className='p-3' />
+                <h2>{name}</h2>
                 <p>{email}</p>
             </div>
         )

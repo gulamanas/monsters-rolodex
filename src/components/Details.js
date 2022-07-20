@@ -17,7 +17,7 @@ const Details = (props) => {
 
     useEffect(() => {
         getData(params.id)
-    }, [])
+    }, [params.id])
 
     console.log(props);
     const { name, email, username, phone } = detailData
